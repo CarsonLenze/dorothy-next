@@ -1,22 +1,15 @@
 const { verify, decode, sign } = require("jsonwebtoken");
+const { Header } = require("../components");
 const { serialize } = require("cookie");
 const axios = require("axios").default;
-
-const { Header } = require("../components");
 
 export default function Home({ user }) {
   return (
     <div>
-      <Header />
+      <Header user={user} />
     </div>
   );
 }
-
-/*
-      {user ? <button onClick={() => window.location.href = "/api/logout"}>Logout</button> : <button onClick={() => window.open("/api/login", "_blank", "width=500,height=850")}>Login</button>}
-      <h1>{user ? `Logged in as ${user.username}#${user.discriminator}!` : 'Not logged in.'}</h1>
-      {user ? <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`}></img> : ''}
-*/
 
 export async function getServerSideProps({ req, res }) {
   return verify(

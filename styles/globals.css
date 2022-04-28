@@ -81,3 +81,8 @@ nav {
 .button:hover {
   background-color: #6a7fc9;
 }
+
+.current {
+  height: 25px;
+  border-radius: 50%;
+}
