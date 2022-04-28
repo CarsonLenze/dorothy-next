@@ -1,0 +1,12 @@
+<script type="text/javascript">
+    function refreshAndClose() {
+      try {
+        window.close();
+      window.opener.location.reload(true);
+      } catch {
+        window.location.href = "/";
+      }
+    }
+</script>
+
+<body onload="refreshAndClose()">
