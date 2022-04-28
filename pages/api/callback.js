@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         headers: { Authorization: `Bearer ${token.data.access_token}` }
     });
     ['access_token', 'refresh_token'].forEach(type => data[type] = token.data[type]);
-    const cookie = sign(data, process.env.COOKIE_SECRET, { expiresIn: "24h" });
+    const cookie = sign(data, process.env.COOKIE_SECRET, { expiresIn: '24h' });
 
     res.setHeader('Set-Cookie',
         serialize('session', cookie, {

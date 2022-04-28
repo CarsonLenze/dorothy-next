@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const params = new URLSearchParams({
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
-        token: user.access
+        token: user.access_token
     });
 
     await axios.post('https://discord.com/api/oauth2/token/revoke', params.toString()).catch(() => { /* here to prevent crashes */ });
