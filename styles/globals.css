@@ -1,16 +1,83 @@
-html,
-body {
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&display=swap');
+
+html {
+  -webkit-font-smoothing: antialiased;
+  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h1, body, ul {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body {
+  color: #4a4a4a;
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 a {
+  text-decoration: inherit;
+  cursor: pointer;
   color: inherit;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10%;
+}
+
+.name {
+    font-family: 'Baloo Paaji 2', cursive;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.sep {
+    color: #340445;
+    margin: 0 2% 0 10px;
+}
+
+.ops {
+    list-style: none;
+    display: flex;
+    font-family: 'Baloo Paaji 2', cursive;
+    flex: 1;
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.lis {
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.button {
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #7289da;
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.icon {
+  width: 1.5rem;
+  margin-top: 2%;
+  margin-right: 10px;
+  display: inline-flex;
+}
+
+.icon svg {
+  fill: white;
+}
+
+.button:hover {
+  background-color: #6a7fc9;
 }
