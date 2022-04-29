@@ -1,21 +1,11 @@
-const Link = require('next/link')
-
 module.exports = function Header({ user }) {
     return (
         <nav>
-            <Link href="/">
-                <h1 className="name">Dorothy</h1>
-            </Link>
-            <Link href="/">
-                <span className="name sep">|</span>
-            </Link>
+            <h1 className="name"><a href="/">Dorothy</a></h1>
+            <span className="name sep">|</span>
             <ul className="ops">
-                <Link href="/commands">
-                    <a className="lis">Commands</a>
-                </Link>
-                <Link href="/plus">
-                    <a className="lis">Premium</a>
-                </Link>
+                <a className="lis" href="/commands">Commands</a>
+                <a className="lis" href="/plus">Premium</a>
             </ul>
             <div className="idk">
                 <a target="_blank" className="button" onClick={() => { user ? window.location.href = "/api/logout" : window.open("/api/login", "_blank", "width=500,height=850") }}>

@@ -1,24 +1,17 @@
 const { verify, decode, sign } = require("jsonwebtoken");
-const { Header, Footer } = require("../components");
 const { serialize } = require("cookie");
+const cookies = require('next-cookies')
 const axios = require("axios").default
-import '../styles/globals.css'
+require('../styles/globals.css');
 
-function MyApp({ Component, pageProps, user }) {
-  return <div>
-    <Header user={user} />
-    <Component {...pageProps} />
-    <Footer />
-  </div>
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
 }
 
 MyApp.getInitialProps = async ({ ctx }) => {
-  const { req, res } = ctx
-  return verify(
-    req.cookies.session,
-    process.env.COOKIE_SECRET,
-    async function (err, decoded) {
-      if (!err) return { user: decoded };
+  const { req, res } = ctx;
+  return verify(req.cookies.session, process.env.COOKIE_SECRET, async function (err, decoded) {
+      if (!err) return { pageProps: { user: decoded } };
 
       if (err.name == "TokenExpiredError") {
         var old = decode(req.cookies.session);
@@ -31,35 +24,24 @@ MyApp.getInitialProps = async ({ ctx }) => {
           refresh_token: old.refresh_token,
         });
 
-        let token = await axios
-          .post("https://discord.com/api/v9/oauth2/token", body)
-          .catch(() => {
-            /* here to prevent crashes */
-          });
+        let token = await axios.post("https://discord.com/api/v9/oauth2/token", body).catch(() => { /* here to prevent crashes */ });
         if (!token) {
-          res.setHeader(
-            "Set-Cookie",
+          res.setHeader("Set-Cookie",
             serialize("session", "", {
               maxAge: -1,
               path: "/",
             })
           );
-
-          return {};
+          return { pageProps: {} };
         }
 
         let { data } = await axios.get("https://discord.com/api/v9/users/@me", {
           headers: { Authorization: `Bearer ${token.data.access_token}` },
         });
-        ["access_token", "refresh_token"].forEach(
-    type => data[type] = token.data[type]
-        );
-        const cookie = sign(data, process.env.COOKIE_SECRET, {
-          expiresIn: "24h",
-        });
+        ["access_token", "refresh_token"].forEach(type => data[type] = token.data[type]);
+        const cookie = sign(data, process.env.COOKIE_SECRET, { expiresIn: "24h" });
 
-        res.setHeader(
-          "Set-Cookie",
+        res.setHeader("Set-Cookie",
           serialize("session", cookie, {
             httpOnly: true,
             secure: process.env.NODE_ENV != "development",
@@ -67,8 +49,9 @@ MyApp.getInitialProps = async ({ ctx }) => {
           })
         );
 
-        return { user: data };
-      } else if (err) return {};
+        return { pageProps: { user: data } };
+      }
+      return { pageProps: {} };
     }
   );
 }
