@@ -15,6 +15,7 @@ module.exports = function Header({ user }) {
                     <span>{user ? user.username : 'Login'}</span>
                 </a>
             </div>
+            
         </nav>
     );
 };

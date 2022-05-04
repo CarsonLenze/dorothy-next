@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&display=swap");
 
 html {
   -webkit-font-smoothing: antialiased;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
 }
 
-h1, body, ul {
+h1,
+body,
+ul {
   padding: 0;
   margin: 0;
 }
@@ -24,36 +28,36 @@ a {
 }
 
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10%;
 }
 
 .name {
-    font-family: 'Baloo Paaji 2', cursive;
-    font-size: 40px;
-    cursor: pointer;
-    font-weight: 400;
+  font-family: "Baloo Paaji 2", cursive;
+  font-size: 40px;
+  cursor: pointer;
+  font-weight: 400;
 }
 
 .sep {
-    color: #340445;
-    margin: 0 2% 0 10px;
+  color: #340445;
+  margin: 0 2% 0 10px;
 }
 
 .ops {
-    list-style: none;
-    display: flex;
-    font-family: 'Baloo Paaji 2', cursive;
-    flex: 1;
-    font-size: 1.2rem;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  font-family: "Baloo Paaji 2", cursive;
+  flex: 1;
+  font-size: 1.2rem;
+  padding: 0;
 }
 
 .lis {
-    padding: 0 10px;
-    cursor: pointer;
+  padding: 0 10px;
+  cursor: pointer;
 }
 
 .button {
@@ -83,6 +87,65 @@ nav {
 }
 
 .current {
-  height: 25px;
+  height: 24px;
   border-radius: 50%;
+}
+
+.hero {
+  display: flex;
+  min-height: 100vh;
+}
+
+.hero-body {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.code {
+  font-size: 25vh;
+  color: #340445;
+  font-weight: 600;
+  line-height: 1.125;
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  font-size: 3vh;
+  font-weight: 400;
+  line-height: 1.25;
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.return {
+  padding-left: 1em;
+  padding-right: 1em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 1rem;
+  height: 2.5em;
+  padding-bottom: calc(0.5em - 1px);
+  padding-top: calc(0.5em - 1px);
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+.return {
+  background-color: #fff;
+  border-color: #4a4a4a;
+}
+
+.return:hover {
+  background-color: #D3D3D3;
+  border-color: #4a4a4a;
+  cursor: pointer;
 }
