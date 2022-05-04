@@ -1,4 +1,5 @@
 const { Header, Footer } = require("../components");
+const { getUser } = require("../lib/user");
 
 export default function Home({ user }) {
   return (
@@ -12,4 +13,11 @@ export default function Home({ user }) {
       <Footer />
     </div>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  let user = await getUser(ctx);
+  return {
+    props: { user },
+  }
 }
