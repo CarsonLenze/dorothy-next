@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 const { verify } = require("jsonwebtoken");
 
 export default async function handler(req, res) {
-    verify(req.cookies.session, process.env.COOKIE_SECRET, function (err, user) {
+    verify(req.cookies.session, process.env.COOKIE_SECRET, async function (err, user) {
         if (err) return res.redirect("/");
 
         const params = new URLSearchParams({
