@@ -80,6 +80,7 @@ nav {
 
 .icon svg {
   fill: white;
+  height: 24px;
 }
 
 .button:hover {
