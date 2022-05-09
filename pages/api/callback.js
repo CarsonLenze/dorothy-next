@@ -1,7 +1,9 @@
+const { default: url } = require('next-absolute-url');
 const { default: axios } = require("axios");
 const { sign } = require("jsonwebtoken");
 
 export default async function handler(req, res) {
+  const { origin } = url(req);
   if (req.method !== "GET") return res.redirect("/");
   const { code = null, error = null } = req.query;
   if (error) return res.redirect(`/?error=${req.query.error}`);
@@ -9,7 +11,7 @@ export default async function handler(req, res) {
   const params = new URLSearchParams({
     client_id: process.env.CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET,
-    redirect_uri: process.env.REDIRECT_URI,
+    redirect_uri: origin + '/api/callback',
     response_type: "code",
     scope: "identify",
   });
@@ -18,7 +20,7 @@ export default async function handler(req, res) {
   const body = new URLSearchParams({
     client_id: process.env.CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET,
-    redirect_uri: process.env.REDIRECT_URI,
+    redirect_uri: origin + '/api/callback',
     grant_type: "authorization_code",
     scope: "identify",
     code,
