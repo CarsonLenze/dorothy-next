@@ -1,4 +1,3 @@
-module.exports = {
-    Header: require('./Header'),
-    Footer: require('./Footer')
-};
+export { Card } from "./Card";
+export { Footer } from "./Footer";
+export { Navbar } from "./Navbar"

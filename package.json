@@ -1,5 +1,5 @@
 {
-  "name": "dorothy",
+  "name": "dorothy-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,13 +11,13 @@
   "dependencies": {
     "axios": "^0.27.2",
     "jsonwebtoken": "^8.5.1",
-    "next": "12.1.5",
+    "next": "12.1.6",
     "next-absolute-url": "^1.2.2",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
-    "eslint": "8.14.0",
-    "eslint-config-next": "12.1.5"
+    "eslint": "8.15.0",
+    "eslint-config-next": "12.1.6"
   }
 }

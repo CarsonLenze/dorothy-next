@@ -3,7 +3,7 @@ const { verify } = require("jsonwebtoken");
 
 export default async function handler(req, res) {
     verify(req.cookies.session, process.env.COOKIE_SECRET, async function (err, user) {
-        if (err) return res.redirect("/");
+        if (err) return  res.send({ status: 'error' });
 
         const params = new URLSearchParams({
             client_id: process.env.CLIENT_ID,
@@ -14,6 +14,6 @@ export default async function handler(req, res) {
         await axios.post("https://discord.com/api/oauth2/token/revoke", params).catch(() => { /* here to prevent crashes */ });
         res.setHeader("Set-Cookie", "session=; Max-Age=-1; Path=/");
 
-        return res.redirect("/");
+        return res.send({ status: 'good' });
     });
 }

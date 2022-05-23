@@ -1,21 +1,23 @@
-const { Header, Footer } = require("../components");
-const { getUser } = require("../lib/user");
+import { Footer, Navbar } from '../components'
+import { getUser } from '../lib/user'
 
-export default function Plus({ user }) {
-  return (
-    <div>
-      <Header user={user} />
-      <div>Plus</div>
-      <div>Plus</div>
-      <div>Plus</div>
-      <Footer />
-    </div>
-  );
+export default function Home({ user }) {
+    return (
+        <div>
+            <Navbar user={user} />
+            <div className='hero'>
+                <div>Plus</div>
+                <div>Plus</div>
+                <div>Plus</div>
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
 export async function getServerSideProps(ctx) {
-  let user = await getUser(ctx);
-  return {
-    props: { user },
-  }
+    let user = await getUser(ctx);
+    return {
+        props: { user },
+    }
 }
