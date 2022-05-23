@@ -17,9 +17,8 @@ export default async function handler(req, res) {
         //     maxAge: -1,
         //     Path: '/'
         //   });
-        res.setHeader("Set-Cookie", "test=hey; Path=/;");
-        res.setHeader("test", "test");
-
-        return res.send({ status: 'good' });
+        res.setHeader("Set-Cookie", "session=; Max-Age=-1; Path=/");
+        res.status(200).json({ name: 'John Doe' })
+        //return res.send({ status: 'good' });
     });
 }
