@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export function Navbar({ user }) {
     return (
@@ -21,7 +20,7 @@ export function Navbar({ user }) {
                     }
                 }}>
                     <div className="icon">
-                        <Image alt="discord" className={user ? "current" : ''} src={user ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : "https://darling-bot.com/img/discord.svg"}></Image>
+                        <img className={user ? "current" : ''} src={user ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png` : "/discord.svg"}></img>
                     </div>
                     <span>{user ? user.username : 'Login'}</span>
                 </a>
