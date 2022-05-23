@@ -12,7 +12,7 @@ export default async function handler(req, res) {
         });
 
         await axios.post("https://discord.com/api/oauth2/token/revoke", params).catch(() => { /* here to prevent crashes */ });
-        res.setHeader("Set-Cookie", "session=; Max-Age=-1; Path=/");
+        res.setHeader("Set-Cookie", "session=; Max-Age=-1; Path=/; SameSite=lax;");
 
         return res.send({ status: 'good' });
     });
