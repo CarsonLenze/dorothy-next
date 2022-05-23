@@ -1,4 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@500&display=swap");
+@font-face {
+  font-family: 'Baloo Paaji 2';
+  src: url('/font.woff2') format('woff2');
+}
 
 p,
 h1,
