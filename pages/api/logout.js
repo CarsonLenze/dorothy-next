@@ -18,6 +18,7 @@ export default async function handler(req, res) {
         //     Path: '/'
         //   });
         res.setHeader("Set-Cookie", "test=hey; Path=/;");
+        res.setHeader("test", "test");
 
         return res.send({ status: 'good' });
     });
